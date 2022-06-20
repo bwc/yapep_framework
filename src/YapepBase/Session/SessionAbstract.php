@@ -337,6 +337,7 @@ abstract class SessionAbstract implements ISession {
 	 *
 	 * @see ArrayAccess::offsetExists()
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetExists($offset) {
 		return isset($this->data[$offset]);
 
@@ -351,6 +352,7 @@ abstract class SessionAbstract implements ISession {
 	 *
 	 * @see ArrayAccess::offsetGet()
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetGet($offset) {
 		if (isset($this->data[$offset])) {
 			return $this->data[$offset];
@@ -368,6 +370,7 @@ abstract class SessionAbstract implements ISession {
 	 *
 	 * @see ArrayAccess::offsetSet()
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetSet($offset, $value) {
 		$this->data[$offset] = $value;
 
@@ -382,6 +385,7 @@ abstract class SessionAbstract implements ISession {
 	 *
 	 * @see ArrayAccess::offsetUnset()
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetUnset($offset) {
 		if (isset($this->data[$offset])) {
 			unset($this->data[$offset]);

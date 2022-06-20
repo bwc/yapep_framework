@@ -61,6 +61,7 @@ class DbResult implements Iterator {
 	 *
 	 * @return array
 	 */
+	#[\ReturnTypeWillChange]
 	public function current() {
 		if (is_null($this->row)) {
 			return $this->next();
@@ -73,6 +74,7 @@ class DbResult implements Iterator {
 	 *
 	 * @return int
 	 */
+	#[\ReturnTypeWillChange]
 	public function key() {
 		if (-1 === $this->rowIndex) {
 			$this->next();
@@ -85,6 +87,7 @@ class DbResult implements Iterator {
 	 *
 	 * @return array|bool
 	 */
+	#[\ReturnTypeWillChange]
 	public function next() {
 		$this->row = $this->statement->fetch(PDO::FETCH_ASSOC);
 		if (false !== $this->row) {
@@ -100,6 +103,7 @@ class DbResult implements Iterator {
 	 *
 	 * @return bool
 	 */
+	#[\ReturnTypeWillChange]
 	public function valid() {
 		return ($this->current() !== false);
 	}
@@ -109,7 +113,8 @@ class DbResult implements Iterator {
 	 *
 	 * @return void
 	 */
-	public function rewind() {}
+	#[\ReturnTypeWillChange]
+    public function rewind() {}
 
 	/**
 	 * Returns one row from the resultset, or FALSE if there are no more rows.

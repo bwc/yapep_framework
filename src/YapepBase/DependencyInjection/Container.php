@@ -44,7 +44,8 @@ class Container implements \ArrayAccess {
 	 *
 	 * @return void
 	 */
-	public function offsetSet($key, $value) {
+	#[\ReturnTypeWillChange]
+    public function offsetSet($key, $value) {
 		$this->values[$key] = $value;
 	}
 
@@ -57,7 +58,8 @@ class Container implements \ArrayAccess {
 	 *
 	 * @throws \YapepBase\Exception\ParameterException   If the key is not defined
 	 */
-	public function offsetGet($key) {
+	#[\ReturnTypeWillChange]
+    public function offsetGet($key) {
 		if (!array_key_exists($key, $this->values)) {
 			throw new ParameterException('Unknown key: ' . $key);
 		}
@@ -74,7 +76,8 @@ class Container implements \ArrayAccess {
 	 *
 	 * @return bool
 	 */
-	public function offsetExists($key) {
+	#[\ReturnTypeWillChange]
+    public function offsetExists($key) {
 		return isset($this->values[$key]);
 	}
 
@@ -85,7 +88,8 @@ class Container implements \ArrayAccess {
 	 *
 	 * @return void
 	 */
-	public function offsetUnset($key) {
+	#[\ReturnTypeWillChange]
+    public function offsetUnset($key) {
 		unset($this->values[$key]);
 	}
 
