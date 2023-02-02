@@ -39,7 +39,7 @@ class PhpOutput implements IOutput {
 	 * @return void
 	 */
 	public function setHeader($string, $replace = true, $responseCode = null) {
-		header($string, $replace, $responseCode);
+		header($string, $replace, (int)$responseCode);
 	}
 
 	/**
@@ -92,7 +92,7 @@ class PhpOutput implements IOutput {
 	 */
 	public function setCookie($name, $value = '', $expire = 0, $path = '/',
 		$domain = '', $secure = false, $httpOnly = false) {
-		return setcookie($name, $value, $expire, $path, $domain, $secure, $httpOnly);
+		return setcookie($name, $value, $expire, $path, (string)$domain, (bool)$secure, (bool)$httpOnly);
 	}
 
 	/**

@@ -372,7 +372,7 @@ class FileHandlerPhp implements IFileHandler {
 
 		$currentDir = $this->getCurrentDirectory();
 		chdir($path);
-		$result = glob($pattern, $flags);
+		$result = glob($pattern, (int)$flags);
 		chdir($currentDir);
 
 		return $result;
